@@ -1,30 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Event</title>
-    <link href="../styles/dark-mode.css" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <nav id="user-nav">
-            <ul>
-                <li id="list-logo"><a href="index.html">
-                    <img id="nav-logo" src="../images/logo.png" alt="logo"></a>
-                </li>
-                <li class="user-nav-elements"><a href="#">Login</a></li>
-                <li class="user-nav-elements"><a href="#">Signup</a></li>
-                <li class="user-nav-elements"><a href="./newEvent.html">New Event</a></li>
-            </ul>
-        </nav>
-        <hr>
-        <nav id="general-nav">
-            <ul>
-                <li><a href="./events.html">Events</a></li>
-            </ul>
-        </nav>
-    </header>
+<%- include('./partials/header.ejs') %> 
     <main>
         <h1>Create Event</h1>
         <form action="#" id="event-form">
@@ -53,16 +27,4 @@
             <button type="submit"><strong>Submit</strong></button>
         </form>
     </main>
-    <footer>
-        <nav>
-            <ul>
-                <li id="copyright">&copy; CLT Sports</li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li class="sm-logo"><a href="#"><img src="../images/twitter-logo.png" alt="twitter-logo"></a></li>
-                <li class="sm-logo"><a href="#"><img src="../images/facebook-logo.png" alt="facebook-logo"></a></li>
-            </ul>
-        </nav>
-    </footer>
-</body>
-</html>
+<%- include('./partials/footer.ejs') %> 
