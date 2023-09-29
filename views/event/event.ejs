@@ -12,7 +12,7 @@
     <h1>Event</h1>
     <div class="event-container">
         <div class= event-header>
-            <h2>Basketball - Midwood Park</h2>
+            <h2><%=event.title%></h2>
             <h2 class="event-edit">&nbsp;
                 <button><i class="fa-regular fa-pen-to-square fa-2xl"></i></button>
             </h2>
@@ -22,10 +22,10 @@
         </div>
         <img src="../images/logo.png" alt="event-img">
         <div class="event-details">
-            <p><strong>Host:</strong> Jon Donson</p>
-            <p><strong>Date and Time:</strong> Wed, Oct 4, 2023, 6pm - 8pm</p>
-            <p><strong>Where:</strong> Midwood Park</p>
-            <p><strong>Details:</strong> Pickup games every Wednesday at Midwood park</p>
+            <p><strong>Host: </strong><%=event.host%></p>
+            <p><strong>Date and Time: </strong> Wed, Oct 4, 2023, 6pm - 8pm</p>
+            <p><strong>Where: </strong><%=event.where%></p>
+            <p><strong>Details: </strong><%=event.content%></p>
         </div>
     </div>
 </main>

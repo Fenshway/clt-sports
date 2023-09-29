@@ -10,6 +10,15 @@
 <%- include('../partials/header.ejs') %> 
 <main>
     <h1>Events</h1>
+    <% if(events.length) { %>
+        <% events.forEach(event=>{ %>
+            <a href="/events/<%=event.id%>"><p><%= event.title %></p></a>
+        <% });
+    } else { %>
+        <p>There are no stories to display</p>
+    <% }; %>
+
+<!--
     <h2>Basketball</h2>
         <ul class="events-container">
             <li><a href="./event.html">Tom Hunter Park</a></li>
@@ -22,6 +31,8 @@
         <li><a href="./event.html">Pearl Street Park</a></li>
         <li><a href="./event.html">White Oak Park</a></li>
     </ul>
+-->
+
 </main>
 <%- include('../partials/footer.ejs') %> 
 </body>

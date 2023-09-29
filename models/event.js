@@ -10,29 +10,29 @@ const events = [
         where: 'Hunter Park',
         start: '11',
         end: '12',
-        image: 'yes'
     },
     {
         id: '2',
         category: 'Softball',
         title: 'now',
         host: 'Justin Privett',
-        content: 'Soccer here',
-        where: 'Hunter Park',
+        content: 'Soccer hersdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfg',
+        where: 'Hunter Parksdfgsdfg',
         start: '11',
         end: '12',
-        image: 'yes'
     },
     {
-        id: '2',
+        id: '3',
         category: 'Basketball',
         title: 'yes',
         host: 'Justin Privett',
-        content: 'Soccer here',
-        where: 'Hunter Park',
+        content: 'Socc',
+        where: 'my park',
         start: '11',
         end: '12',
-        image: 'yes'
     },
 ];
 
+exports.find = () => events;
+
+exports.findById = id => events.find(event=>event.id === id);
