@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLT Sports</title>
+    <link href="/styles/dark-mode.css" rel="stylesheet">
+</head>
+<body>
+<%- include('../partials/header.ejs') %> 
+<main>
+    <h1>Create Event</h1>
+    <form action="#" id="event-form">
+        <label for="category"><strong>Category</strong></label>
+            <select name="category" id="category" required>
+                <option value="" disabled selected>--Select a Category--</option>
+                <option value="soccer">Soccer</option>
+                <option value="basketball">Basketball</option>
+                <option value="softball">Softball</option>
+                <option value="tennis">Tennis</option>
+                <option value="pickleball">Pickleball</option>
+                <option value="other">Other</option>
+            </select>
+        <label for="title"><strong>Title</strong></label>
+        <input type="text" name="title" id="title" required>   
+        <label for="details"><strong>Details</strong></label>
+        <textarea name="details" id="details" rows="3" cols="50" required></textarea>
+        <label for="where"><strong>Where</strong></label>
+        <input type="text" name="where" id="where" required>
+        <label for="start-date"><strong>Start</strong></label>
+        <input type="datetime-local" name="start-date" id="start-date" required>       
+        <label for="end-date"><strong>End</strong></label>
+        <input type="datetime-local" name="end-date" id="end-date" required>       
+        <label for="event-image"><strong>Image</strong></label>           
+        <input type="file" name="event-image" id="event-image" required>   
+        <button type="submit"><strong>Submit</strong></button>
+    </form>
+</main>
+<%- include('../partials/footer.ejs') %> 
+</body>
+</html>
