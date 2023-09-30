@@ -1,5 +1,4 @@
 const model = require('../models/event')
-const categories = []
 
 exports.events = (req, res)=>{
     let events = model.find();
@@ -26,4 +25,16 @@ exports.create = (req, res)=>{
     let event = req.body;
     model.add(event);
     res.redirect('/events');
+}
+
+exports.delete = (req, res, next)=>{
+    let id = req.params.id;
+    if (model.deleteById(id)) {
+        res.redirect('/events');
+    } else {
+        let err = new Error('Cannot find story with id ' + id);
+        err.status = 404;
+        next(err);
+    }
+
 }

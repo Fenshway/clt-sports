@@ -14,4 +14,7 @@ router.get('/:id', controller.show);
 //POST /events: create a new event
 router.post('/', controller.create)
 
+//DELETE /events/:id: delete story by id
+router.delete('/:id', controller.delete)
+
 module.exports = router;

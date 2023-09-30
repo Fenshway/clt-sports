@@ -44,3 +44,12 @@ exports.add = function (event) {
     events.push(event);
 };
 
+exports.deleteById = function(id) {
+    let index = events.findIndex(event => event.id === id);
+    if (index != -1) {
+        events.splice(index, 1);
+        return true;
+    } else {
+        return false;
+    }
+}
