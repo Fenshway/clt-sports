@@ -43,3 +43,4 @@ exports.add = function (event) {
     event.host = 'Temp host (Pull from user name after creating user later in project)'
     events.push(event);
 };
+
