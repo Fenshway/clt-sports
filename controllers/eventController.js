@@ -21,3 +21,9 @@ exports.show = (req, res, next)=>{
         next(err);
     }
 };
+
+exports.create = (req, res)=>{
+    let event = req.body;
+    model.add(event);
+    res.redirect('/events');
+}

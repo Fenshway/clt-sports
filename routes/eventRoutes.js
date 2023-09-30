@@ -11,5 +11,7 @@ router.get('/new', controller.new);
 //GET /events/:id: details of any particular story
 router.get('/:id', controller.show);
 
+//POST /events: create a new event
+router.post('/', controller.create)
 
 module.exports = router;

@@ -26,9 +26,11 @@
         <img src="../images/logo.png" alt="event-img">
         <div class="event-details">
             <p><strong>Host: </strong><%=event.host%></p>
-            <p><strong>Date and Time: </strong> Wed, Oct 4, 2023, 6pm - 8pm</p>
+            <p><strong>When: </strong><%=event.start%></p>
+            <p><strong>Until: </strong><%=event.end%> </p>
             <p><strong>Where: </strong><%=event.where%></p>
-            <p><strong>Details: </strong><%=event.content%></p>
+            <p><strong>Details: </strong><%=event.details%></p>
+            <% console.log(event.start) %>
         </div>
     </div>
 </main>
