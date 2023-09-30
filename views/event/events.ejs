@@ -11,27 +11,25 @@
 <main>
     <h1>Events</h1>
     <% if(events.length) { %>
-        <% events.forEach(event=>{ %>
-            <a href="/events/<%=event.id%>"><p><%= event.title %></p></a>
-        <% });
-    } else { %>
+        <% const categories = {}; %>
+        <% events.forEach(event => { %>
+            <% if (!categories[event.category]) { %>
+                <% categories[event.category] = []; %>
+            <% } %>
+            <% categories[event.category].push(event); %>
+        <% }); %>       
+        <% for (const category in categories) { %>
+            <h2><%=category%></h2>
+            <ul class="events-container">
+                <% categories[category].forEach(event => { %>
+                    <li><a href="/events/<%=event.id%>"><%=event.title%></a></li>
+                <% }); %>
+            </ul>
+        <% } %>
+
+    <% } else { %>
         <p>There are no stories to display</p>
     <% }; %>
-
-<!--
-    <h2>Basketball</h2>
-        <ul class="events-container">
-            <li><a href="./event.html">Tom Hunter Park</a></li>
-            <li><a href="./event.html">UNC Charlotte UREC</a></li>
-            <li><a href="./event.html">Midwood Park</a></li>
-        </ul>
-    <h2>Pickleball</h2>
-    <ul class="events-container">
-        <li><a href="./event.html">Clark Creek Community Park</a></li>
-        <li><a href="./event.html">Pearl Street Park</a></li>
-        <li><a href="./event.html">White Oak Park</a></li>
-    </ul>
--->
 
 </main>
 <%- include('../partials/footer.ejs') %> 

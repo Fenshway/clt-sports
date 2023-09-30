@@ -13,7 +13,7 @@ const events = [
     },
     {
         id: '2',
-        category: 'Softball',
+        category: 'Soccer',
         title: 'now',
         host: 'Justin Privett',
         content: 'Soccer hersdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfg',
@@ -30,7 +30,7 @@ const events = [
         where: 'my park',
         start: '11',
         end: '12',
-    },
+    }
 ];
 
 exports.find = () => events;

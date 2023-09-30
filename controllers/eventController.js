@@ -1,4 +1,5 @@
 const model = require('../models/event')
+const categories = []
 
 exports.events = (req, res)=>{
     let events = model.find();
@@ -20,4 +21,3 @@ exports.show = (req, res, next)=>{
         next(err);
     }
 };
-
