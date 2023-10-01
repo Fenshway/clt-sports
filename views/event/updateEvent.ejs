@@ -13,14 +13,14 @@
     <form action="/events" method="POST" id="event-form">
         <!--TODO: Get update form to preset category-->
         <label for="category"><strong>Category</strong></label>
-            <select name="category" id="category" value="<%=event.details%>" required>
+            <select name="category" id="category" required>
                 <option value="" disabled selected>--Select a Category--</option>
-                <option value="Soccer">Soccer</option>
-                <option value="Basketball">Basketball</option>
-                <option value="Softball">Softball</option>
-                <option value="Tennis">Tennis</option>
-                <option value="Pickleball">Pickleball</option>
-                <option value="Other">Other</option>
+                <option value="Soccer" <%=event.category === 'Soccer' ? 'selected' : ''%>>Soccer</option>
+                <option value="Basketball" <%=event.category === 'Basketball' ? 'selected' : ''%>>Basketball</option>
+                <option value="Softball" <%=event.category === 'Softball' ? 'selected' : ''%>>Softball</option>
+                <option value="Tennis" <%=event.category === 'Tennis' ? 'selected' : ''%>>Tennis</option>
+                <option value="Pickleball" <%=event.category === 'Pickleball' ? 'selected' : ''%>>Pickleball</option>
+                <option value="Other" <%=event.category === 'Other' ? 'selected' : ''%>>Other</option>
             </select>
         <label for="title"><strong>Title</strong></label>
         <input type="text" name="title" id="title" value="<%=event.title%>" required>   
