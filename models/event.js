@@ -11,6 +11,7 @@ const events = [
         where: 'Hunter Park',
         start: '2023-10-21T11:09',
         end: '2024-10-21T11:09',
+        eventImage: ''
     },
     {
         id: '2',
@@ -21,6 +22,7 @@ const events = [
         where: 'Hunter Parksdfgsdfg',
         start: '2023-10-21T11:09',
         end: '2024-10-21T11:09',
+        eventImage: ''
     },
     {
         id: '3',
@@ -31,6 +33,7 @@ const events = [
         where: 'my park',
         start: '2023-10-21T11:19',
         end: '2023-10-21T12:09',
+        eventImage: ''
     }
 ];
 

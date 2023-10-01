@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
 const eventRoutes = require('./routes/eventRoutes');
+const mainRoutes = require('./routes/mainRoutes');
 
 const app = express();
 
@@ -14,21 +15,9 @@ app.use(express.urlencoded({extended: true}));
 app.use(morgan('tiny'));
 app.use(methodOverride('_method'));
 
-app.get('/', (req, res)=>{
-    res.render('index');
-});
-
-app.get('/contact', (req, res)=>{
-    res.render('contact');
-});
-
-app.get('/about', (req, res)=>{
-    res.render('about');
-});
+app.use('/', mainRoutes);
 
 app.use('/events', eventRoutes);
-
-
 
 app.listen(port, host, ()=>{
     console.log('The server is running at port', port);
