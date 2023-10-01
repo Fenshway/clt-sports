@@ -10,11 +10,10 @@
 <%- include('../partials/header.ejs') %> 
 <main>
     <h1>Create Event</h1>
-    <form action="/events" method="POST" id="event-form">
-        <!--TODO: Get update form to preset category-->
+    <form method="POST" action="/events/<%=event.id%>?_method=PUT" id="event-form">
         <label for="category"><strong>Category</strong></label>
             <select name="category" id="category" required>
-                <option value="" disabled selected>--Select a Category--</option>
+                <option value="" disabled>--Select a Category--</option>
                 <option value="Soccer" <%=event.category === 'Soccer' ? 'selected' : ''%>>Soccer</option>
                 <option value="Basketball" <%=event.category === 'Basketball' ? 'selected' : ''%>>Basketball</option>
                 <option value="Softball" <%=event.category === 'Softball' ? 'selected' : ''%>>Softball</option>

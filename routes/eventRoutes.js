@@ -20,4 +20,7 @@ router.delete('/:id', controller.delete);
 //GET /events/:id/edit: form to update event
 router.get('/:id/edit', controller.edit);
 
+//PUT /events/:id: update event by id
+router.put('/:id', controller.update);
+
 module.exports = router;

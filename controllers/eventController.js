@@ -6,7 +6,7 @@ exports.events = (req, res)=>{
 };
 
 exports.new = (req, res)=>{
-    res.render('./event/newEvent')
+    res.render('./event/newEvent');
 };
 
 exports.show = (req, res, next)=>{
@@ -25,7 +25,7 @@ exports.create = (req, res)=>{
     let event = req.body;
     model.add(event);
     res.redirect('/events');
-}
+};
 
 exports.delete = (req, res, next)=>{
     let id = req.params.id;
@@ -43,6 +43,18 @@ exports.edit = (req, res, next)=>{
     let event = model.findById(id);
     if(event) {
         res.render('./event/updateEvent', {event});
+    } else {
+        let err = new Error('Cannot find story with id ' + id);
+        err.status = 404;
+        next(err);
+    };
+};
+
+exports.update = (req, res, next)=>{
+    let id = req.params.id;
+    let event = req.body;
+    if (model.updateById(id, event)) {
+        res.redirect('/events/');
     } else {
         let err = new Error('Cannot find story with id ' + id);
         err.status = 404;

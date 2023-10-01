@@ -9,8 +9,8 @@ const events = [
         host: 'Justin Privett',
         details: 'Soccer here',
         where: 'Hunter Park',
-        start: '11/11/11, 9:30 AM',
-        end: '11/11/11, 10:00 AM',
+        start: '2023-10-21T11:09',
+        end: '2024-10-21T11:09',
     },
     {
         id: '2',
@@ -19,8 +19,8 @@ const events = [
         host: 'Justin Privett',
         details: 'Soccer hersdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfg',
         where: 'Hunter Parksdfgsdfg',
-        start: '11/11/11, 9:30 AM',
-        end: '11/11/11, 10:00 AM',
+        start: '2023-10-21T11:09',
+        end: '2024-10-21T11:09',
     },
     {
         id: '3',
@@ -29,8 +29,8 @@ const events = [
         host: 'Justin Privett',
         details: 'Socc',
         where: 'my park',
-        start: '11/11/11, 9:30 AM',
-        end: '11/11/11, 10:00 AM',
+        start: '2023-10-21T11:19',
+        end: '2023-10-21T12:09',
     }
 ];
 
@@ -48,6 +48,21 @@ exports.deleteById = function(id) {
     let index = events.findIndex(event => event.id === id);
     if (index != -1) {
         events.splice(index, 1);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+exports.updateById = function(id, updateEvent) {
+    let event = events.find(event=>event.id === id);
+    if (event) {
+        event.category = updateEvent.category;
+        event.title = updateEvent.title;
+        event.details = updateEvent.details;
+        event.where = updateEvent.where;
+        event.start = updateEvent.start;
+        event.end = updateEvent.end;
         return true;
     } else {
         return false;
