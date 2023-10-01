@@ -18,7 +18,7 @@ exports.show = (req, res, next)=>{
         let err = new Error('Cannot find event with id ' + id);
         err.status = 404;
         next(err);
-    }
+    };
 };
 
 exports.create = (req, res)=>{
@@ -35,6 +35,17 @@ exports.delete = (req, res, next)=>{
         let err = new Error('Cannot find story with id ' + id);
         err.status = 404;
         next(err);
-    }
+    };
+};
 
-}
+exports.edit = (req, res, next)=>{
+    let id = req.params.id;
+    let event = model.findById(id);
+    if(event) {
+        res.render('./event/updateEvent', {event});
+    } else {
+        let err = new Error('Cannot find story with id ' + id);
+        err.status = 404;
+        next(err);
+    };
+};

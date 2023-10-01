@@ -143,6 +143,9 @@ footer li {
 .event-header h2 {
     padding: 0 5px;
 }
+#event-buttons-form {
+    display: flex;
+}
 .event-edit button {
     color: lightgreen;
 }

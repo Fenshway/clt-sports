@@ -16,10 +16,11 @@
     <div class="event-container">
         <div class= event-header>
             <h2><%=event.title%></h2>
-            <!--TO DO: Fix CSS to make buttons and event title on same line-->
-            <form>
+            <form id="event-buttons-form">
                 <h2 class="event-edit">&nbsp;
-                    <button><i class="fa-regular fa-pen-to-square fa-2xl"></i></button>
+                    <button type="submit" formmethod="GET" formaction="/events/<%=event.id%>/edit">
+                        <i class="fa-regular fa-pen-to-square fa-2xl"></i>
+                    </button>
                 </h2>
                 <h2 class="event-delete">&nbsp;
                     <button type="submit" formmethod="POST" formaction="/events/<%=event.id%>/?_method=DELETE">
