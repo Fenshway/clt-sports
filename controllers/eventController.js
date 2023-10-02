@@ -33,7 +33,7 @@ exports.show = (req, res, next)=>{
     };
 };
 
-exports.create = (req, res, next)=>{
+exports.create = (req, res)=>{
     let event = req.body;
     let filePath = req.file.path;
     let splitPaths = filePath.split('\\');
