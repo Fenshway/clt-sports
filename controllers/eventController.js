@@ -1,4 +1,16 @@
-const model = require('../models/event')
+const model = require('../models/event');
+const multer = require('multer');
+const path = require('path');
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb)=>{
+        cb(null, 'public/images/event/');
+    },
+    filename: (req, file, cb)=>{
+        cb(null, Date.now() + path.extname(file.originalname));
+    }
+});
+exports.upload = multer({storage: storage});
 
 exports.events = (req, res)=>{
     let events = model.find();
@@ -21,8 +33,12 @@ exports.show = (req, res, next)=>{
     };
 };
 
-exports.create = (req, res)=>{
+exports.create = (req, res, next)=>{
     let event = req.body;
+    let filePath = req.file.path;
+    let splitPaths = filePath.split('\\');
+    let fileName = splitPaths[splitPaths.length - 1];
+    event.eventImage = fileName;
     model.add(event);
     res.redirect('/events');
 };

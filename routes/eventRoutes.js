@@ -12,10 +12,10 @@ router.get('/new', controller.new);
 router.get('/:id', controller.show);
 
 //POST /events: create a new event
-router.post('/', controller.create);
+router.post('/', controller.upload.single('eventImage'), controller.create);
 
 //DELETE /events/:id: delete story by id
-router.delete('/:id', controller.delete);
+router.delete('/:id', controller.delete); 
 
 //GET /events/:id/edit: form to update event
 router.get('/:id/edit', controller.edit);

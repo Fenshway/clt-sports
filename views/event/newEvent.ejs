@@ -10,7 +10,7 @@
 <%- include('../partials/header.ejs') %> 
 <main>
     <h1>Create Event</h1>
-    <form action="/events" method="POST" id="event-form">
+    <form action="/events" method="POST" id="event-form" enctype="multipart/form-data">
         <label for="category"><strong>Category</strong></label>
             <select name="category" id="category" required>
                 <option value="" disabled selected>--Select a Category--</option>
@@ -31,8 +31,9 @@
         <input type="datetime-local" name="start" id="start" required>       
         <label for="end"><strong>End</strong></label>
         <input type="datetime-local" name="end" id="end" required>       
-        <label for="event-image"><strong>Image</strong></label>           
-        <input type="file" name="event-image" id="event-image">   
+        <label for="eventImage"><strong>Image</strong></label>           
+        <input type="file" name="eventImage" id="eventImage" accept="image/*">
+        <input type="hidden" name="eventImageFileName" id="eventImageFileName">
         <button type="submit"><strong>Submit</strong></button>
     </form>
 </main>

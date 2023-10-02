@@ -117,6 +117,9 @@ footer li {
     background-color: lightgreen;
     cursor: pointer;
 }
+#eventImage {
+    color: black;
+}
 
 /* events */
 .events-container li {
