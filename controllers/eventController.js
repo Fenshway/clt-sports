@@ -57,6 +57,10 @@ exports.edit = (req, res, next)=>{
 exports.update = (req, res, next)=>{
     let id = req.params.id;
     let event = req.body;
+    let filePath = req.file.path;
+    let splitPaths = filePath.split('\\');
+    let fileName = splitPaths[splitPaths.length - 1];
+    event.eventImage = fileName;
     if (model.updateById(id, event)) {
         res.redirect('/events/');
     } else {

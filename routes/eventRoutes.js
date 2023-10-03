@@ -22,6 +22,6 @@ router.delete('/:id', controller.delete);
 router.get('/:id/edit', controller.edit);
 
 //PUT /events/:id: update event by id
-router.put('/:id', controller.update);
+router.put('/:id', fileUpload, controller.update);
 
 module.exports = router;

@@ -10,6 +10,7 @@
 <%- include('../partials/header.ejs') %> 
 <main>
     <h1>Update Event</h1>
+    <p><small>Only choose file if you'd like to update the image</small></p>  
     <form method="POST" action="/events/<%=event.id%>?_method=PUT" id="event-form" enctype="multipart/form-data">
         <label for="category"><strong>Category</strong></label>
             <select name="category" id="category" required>
@@ -30,9 +31,11 @@
         <label for="start"><strong>Start</strong></label>
         <input type="datetime-local" name="start" id="start" value="<%=event.start%>" required>       
         <label for="end"><strong>End</strong></label>
-        <input type="datetime-local" name="end" id="end" value="<%=event.end%>" required>       
+        <input type="datetime-local" name="end" id="end" value="<%=event.end%>" required> 
         <label for="eventImage"><strong>Image</strong></label>
-        <input type="file" name="eventImage" id="eventImage">   
+        <input type="file" name="eventImage" id="eventImage" accept="image/*">  
+        <label for="current-image"><strong>Current Image</strong></label>
+        <img src="/images/event/<%=event.eventImage%>" alt="update-event-image" class="update-image">
         <button type="submit"><strong>Submit</strong></button>
     </form>
 </main>

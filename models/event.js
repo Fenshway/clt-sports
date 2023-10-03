@@ -65,6 +65,7 @@ exports.updateById = function(id, updateEvent) {
         event.where = updateEvent.where;
         event.start = updateEvent.start;
         event.end = updateEvent.end;
+        event.eventImage = updateEvent.eventImage;
         return true;
     } else {
         return false;
