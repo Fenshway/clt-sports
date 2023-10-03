@@ -1,16 +1,4 @@
 const model = require('../models/event');
-const multer = require('multer');
-const path = require('path');
-
-const storage = multer.diskStorage({
-    destination: (req, file, cb)=>{
-        cb(null, 'public/images/event/');
-    },
-    filename: (req, file, cb)=>{
-        cb(null, Date.now() + path.extname(file.originalname));
-    }
-});
-exports.upload = multer({storage: storage});
 
 exports.events = (req, res)=>{
     let events = model.find();
@@ -58,7 +46,7 @@ exports.edit = (req, res, next)=>{
     let id = req.params.id;
     let event = model.findById(id);
     if(event) {
-        res.render('./event/updateEvent', {event});
+        res.render('./event/edit', {event});
     } else {
         let err = new Error('Cannot find story with id ' + id);
         err.status = 404;

@@ -10,7 +10,7 @@
 <%- include('../partials/header.ejs') %> 
 <main>
     <h1>Update Event</h1>
-    <form method="POST" action="/events/<%=event.id%>?_method=PUT" id="event-form">
+    <form method="POST" action="/events/<%=event.id%>?_method=PUT" id="event-form" enctype="multipart/form-data">
         <label for="category"><strong>Category</strong></label>
             <select name="category" id="category" required>
                 <option value="" disabled>--Select a Category--</option>

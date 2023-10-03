@@ -1,5 +1,6 @@
 const express = require('express');
 const controller = require('../controllers/eventController');
+const {fileUpload} = require('../middleware/fileUpload');
 const router = express.Router();
 
 //GET /stories: send all events to user
@@ -12,7 +13,7 @@ router.get('/new', controller.new);
 router.get('/:id', controller.show);
 
 //POST /events: create a new event
-router.post('/', controller.upload.single('eventImage'), controller.create);
+router.post('/', fileUpload, controller.create);
 
 //DELETE /events/:id: delete story by id
 router.delete('/:id', controller.delete); 
