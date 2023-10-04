@@ -22,7 +22,7 @@
             <h2><%=category%></h2>
             <ul class="events-container">
                 <% categories[category].forEach(event => { %>
-                    <li><a href="/events/<%=event.id%>"><%=event.title%></a></li>
+                    <li><a href="/events/<%=event.id%>"><%=event.title%> <small>(<%=event.where%>)</small></a></li>
                 <% }); %>
             </ul>
         <% } %>

@@ -7,7 +7,7 @@ const events = [
         title: 'Soccer now',
         host: 'Justin Privett',
         details: 'Soccer here',
-        where: 'Hunter Park',
+        where: 'Tom Hunter Park',
         start: '2023-10-21T11:09',
         end: '2024-10-21T11:09',
         eventImage: 'default.png'
@@ -16,22 +16,55 @@ const events = [
         id: '2',
         category: 'Soccer',
         title: 'now',
-        host: 'Justin Privett',
-        details: 'Soccer hersdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfg',
-        where: 'Hunter Parksdfgsdfg',
-        start: '2023-10-21T11:09',
+        host: 'Don Timson',
+        details: 'Soccer will surely be played',
+        where: 'Bond Park',
+        start: '2023-10-21T12:09',
         end: '2024-10-21T11:09',
         eventImage: 'default.png'
     },
     {
         id: '3',
-        category: 'Basketball',
+        category: 'Soccer',
         title: 'yes',
-        host: 'Justin Privett',
+        host: 'Timmy Donson',
         details: 'Socc',
-        where: 'my park',
+        where: 'Reedy Creek Park',
         start: '2023-10-21T11:19',
         end: '2023-10-21T12:09',
+        eventImage: 'default.png'
+    },
+    {
+        id: '4',
+        category: 'Pickleball',
+        title: 'Thomas Pickleball Club',
+        host: 'Richard Thomas',
+        details: 'Soccer here',
+        where: 'White Oak Park',
+        start: '2023-10-21T11:09',
+        end: '2024-10-21T11:09',
+        eventImage: 'default.png'
+    },
+    {
+        id: '5',
+        category: 'Pickleball',
+        title: 'Pickleball Night',
+        host: 'Don Johnson',
+        details: 'Looking for people to play pickleball with. It is okay if you are just learning.',
+        where: 'Pearl Street Park',
+        start: '2023-10-21T18:00',
+        end: '2023-10-21T19:45',
+        eventImage: 'default.png'
+    },
+    {
+        id: '6',
+        category: 'Pickleball',
+        title: 'Doubles Pickleball',
+        host: 'John Donson',
+        details: 'Soccer here',
+        where: 'Clark Creek Community Park',
+        start: '2023-11-24T11:00',
+        end: '2023-11-24T12:045',
         eventImage: 'default.png'
     }
 ];
@@ -42,7 +75,6 @@ exports.findById = id => events.find(event=>event.id === id);
 
 exports.add = function (event) {
     event.id = uuidv4();
-    event.host = 'Temp host (Pull from user name after creating user later in project)'
     events.push(event);
 };
 
@@ -61,6 +93,7 @@ exports.updateById = function(id, updateEvent) {
     if (event) {
         event.category = updateEvent.category;
         event.title = updateEvent.title;
+        event.host = updateEvent.host;
         event.details = updateEvent.details;
         event.where = updateEvent.where;
         event.start = updateEvent.start;
