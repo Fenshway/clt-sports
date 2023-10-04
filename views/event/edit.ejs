@@ -31,9 +31,9 @@
         <label for="where"><strong>Where</strong></label>
         <input type="text" name="where" id="where" value="<%=event.where%>" required>
         <label for="start"><strong>Start</strong></label>
-        <input type="datetime-local" name="start" id="start" value="<%=event.start%>" required>       
+        <input type="datetime-local" step="1" name="start" id="start" value="<%=event.start%>" required>       
         <label for="end"><strong>End</strong></label>
-        <input type="datetime-local" name="end" id="end" value="<%=event.end%>" required> 
+        <input type="datetime-local" step="1" name="end" id="end" value="<%=event.end%>" required> 
         <label for="eventImage"><strong>Image</strong></label>
         <input type="file" name="eventImage" id="eventImage" accept="image/*">  
         <label for="current-image"><strong>Current Image</strong></label>

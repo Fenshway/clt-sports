@@ -32,11 +32,10 @@
         <img src="/images/event/<%=event.eventImage%>" alt="event-img">
         <div class="event-details">
             <p><strong>Host: </strong><%=event.host%></p>
-            <p><strong>When: </strong><%=event.start%></p>
-            <p><strong>Until: </strong><%=event.end%> </p>
+            <p><strong>When: </strong><%=dateFormat(event.start)%></p>
+            <p><strong>Until: </strong><%=dateFormat(event.end)%></p>
             <p><strong>Where: </strong><%=event.where%></p>
             <p><strong>Details: </strong><%=event.details%></p>
-            <% console.log(event.eventImage) %>
         </div>
     </div>
 </main>

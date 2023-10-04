@@ -8,8 +8,8 @@ const events = [
         host: 'Justin Privett',
         details: 'Soccer pick up games! If you are intested we also need a few members for the upcoming adult spring season',
         where: 'Tom Hunter Park',
-        start: '2023-10-21T11:09',
-        end: '2024-10-21T11:09',
+        start: '2023-10-21T14:45:00',
+        end: '2023-10-21T18:30:00',
         eventImage: 'default.png'
     },
     {
@@ -19,8 +19,8 @@ const events = [
         host: 'Don Timson',
         details: 'Do not worry, soccer will surely be played',
         where: 'Bond Park',
-        start: '2023-10-21T12:09',
-        end: '2024-10-21T11:09',
+        start: '2023-11-11T10:10:00',
+        end: '2023-11-11T11:40:00',
         eventImage: 'default.png'
     },
     {
@@ -30,8 +30,8 @@ const events = [
         host: 'Timmy Donson',
         details: 'Join us for an exciting soccer event at Reedy Creek Park',
         where: 'Reedy Creek Park',
-        start: '2023-10-21T11:19',
-        end: '2023-10-21T12:09',
+        start: '2023-12-21T11:00:00',
+        end: '2023-12-21T12:45:00',
         eventImage: 'default.png'
     },
     {
@@ -41,8 +41,8 @@ const events = [
         host: 'Richard Thomas',
         details: 'Get ready for an action-packed Pickleball event at White Oak Park! Whether you are a seasoned pro or new to the game, this event is perfect for players of all levels.',
         where: 'White Oak Park',
-        start: '2023-10-21T11:09',
-        end: '2024-10-21T11:09',
+        start: '2023-10-22T11:09:00',
+        end: '2023-10-22T11:09:00',
         eventImage: 'default.png'
     },
     {
@@ -52,8 +52,8 @@ const events = [
         host: 'Don Johnson',
         details: 'Looking for people to play pickleball with. It is okay if you are just learning.',
         where: 'Pearl Street Park',
-        start: '2023-10-21T18:00',
-        end: '2023-10-21T19:45',
+        start: '2023-10-23T18:00:00',
+        end: '2023-10-23T19:45:00',
         eventImage: 'default.png'
     },
     {
@@ -63,8 +63,8 @@ const events = [
         host: 'John Donson',
         details: 'Nestled in the heart of nature, Clark Creek Community Park offers the perfect backdrop for this fun and social event. ',
         where: 'Clark Creek Community Park',
-        start: '2023-11-24T11:00',
-        end: '2023-11-24T12:045',
+        start: '2023-11-24T11:00:00',
+        end: '2023-11-24T12:45:00',
         eventImage: 'default.png'
     }
 ];

@@ -1,4 +1,5 @@
 const model = require('../models/event');
+const { dateFormat } = require('../scripts/dateFormat')
 
 exports.events = (req, res)=>{
     let events = model.find();
@@ -13,7 +14,7 @@ exports.show = (req, res, next)=>{
     let id = req.params.id;
     let event = model.findById(id);
     if(event) {
-        res.render('./event/event', {event});
+        res.render('./event/event', {event, dateFormat});
     } else {
         let err = new Error('Cannot find event with id ' + id);
         err.status = 404;
