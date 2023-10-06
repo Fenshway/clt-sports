@@ -3,7 +3,6 @@ const morgan = require('morgan');
 const methodOverride = require('method-override');
 const eventRoutes = require('./routes/eventRoutes');
 const mainRoutes = require('./routes/mainRoutes');
-const dateTime = require('./scripts/dateFormat')
 
 const app = express();
 

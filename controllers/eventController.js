@@ -37,7 +37,7 @@ exports.delete = (req, res, next)=>{
     if (model.deleteById(id)) {
         res.redirect('/events');
     } else {
-        let err = new Error('Cannot find story with id ' + id);
+        let err = new Error('Cannot find event with id ' + id);
         err.status = 404;
         next(err);
     };
@@ -49,7 +49,7 @@ exports.edit = (req, res, next)=>{
     if(event) {
         res.render('./event/edit', {event});
     } else {
-        let err = new Error('Cannot find story with id ' + id);
+        let err = new Error('Cannot find event with id ' + id);
         err.status = 404;
         next(err);
     };
@@ -58,15 +58,17 @@ exports.edit = (req, res, next)=>{
 exports.update = (req, res, next)=>{
     let id = req.params.id;
     let event = req.body;
-    let filePath = req.file.path;
-    let splitPaths = filePath.split('\\');
-    let fileName = splitPaths[splitPaths.length - 1];
-    event.eventImage = fileName;
+    if(req.file && req.file.path) {
+        let filePath = req.file.path;
+        let splitPaths = filePath.split('\\');
+        let fileName = splitPaths[splitPaths.length - 1];
+        event.eventImage = fileName;
+    };
     if (model.updateById(id, event)) {
-        res.redirect('/events/');
+        res.redirect('/events/' + id);
     } else {
-        let err = new Error('Cannot find story with id ' + id);
+        let err = new Error('Cannot find event with id ' + id);
         err.status = 404;
         next(err);
-    };
+    }
 };
