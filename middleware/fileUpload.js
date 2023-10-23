@@ -21,7 +21,7 @@ const fileFilter = (req, file, cb)=>{
 
 exports.upload = multer({
     storage: storage,
-    limits:{fileSize: 1*1024*1024},
+    limits:{fileSize: 2*1024*1024},
     fileFilter: fileFilter
 }).single('eventImage');
 
