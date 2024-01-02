@@ -7,7 +7,7 @@
     <link href="/styles/dark-mode.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer">>
+    crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
 <header>
@@ -16,9 +16,14 @@
             <li id="list-logo"><a href="/">
                 <img id="nav-logo" src="/images/logo.png" alt="logo"></a>
             </li>
-            <li class="user-nav-elements"><a href="#">Login</a></li>
-            <li class="user-nav-elements"><a href="#">Signup</a></li>
-            <li class="user-nav-elements"><a href="/events/new">New Event</a></li>
+            <% if(!user) { %>
+                <li class="user-nav-elements"><a href="/users/login">Login</a></li>
+                <li class="user-nav-elements"><a href="/users/register">Signup</a></li>
+            <% } else { %>
+                <li class="user-nav-elements"><a href="/users/logout">Logout</a></li>
+                <li class="user-nav-elements"><a href="/users/profile"><%= user.firstName  %>'s Profile</a></li>
+                <li class="user-nav-elements"><a href="/events/new">New Event</a></li>
+            <% } %>  
         </ul>
     </nav>
     <hr>
@@ -27,4 +32,21 @@
             <li><a href="/events">Events</a></li>
         </ul>
     </nav>
+
 </header>
+<main>
+<% if(errorMessages.length > 0) {%>
+    <% errorMessages.forEach(message=>{%>
+        <div class='error'>
+            <%=message%>
+        </div>
+    <%});%>
+<%}%>
+
+<% if(successMessages.length > 0) {%>
+    <% successMessages.forEach(message=>{%>
+        <div class='success'>
+            <%=message%>
+        </div>
+    <%});%>
+<%}%>

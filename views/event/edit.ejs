@@ -1,5 +1,4 @@
 <%- include('../partials/header.ejs') %> 
-<main>
     <h1>Update Event</h1>
     <p><small>Only choose a file if you'd like to update the image</small></p>  
     <form method="POST" action="/events/<%=event.id%>?_method=PUT" id="event-form" enctype="multipart/form-data">
@@ -15,16 +14,14 @@
             </select>
         <label for="title"><strong>Title</strong></label>
         <input type="text" name="title" id="title" value="<%=event.title%>" required>   
-        <label for="host"><strong>Host</strong></label>
-        <input type="text" name="host" id="host" value="<%=event.host%>" required>  
         <label for="details"><strong>Details</strong></label>
         <textarea name="details" id="details" rows="3" cols="50" required><%=event.details%></textarea>
-        <label for="where"><strong>Where</strong></label>
-        <input type="text" name="where" id="where" value="<%=event.where%>" required>
+        <label for="location"><strong>Where</strong></label>
+        <input type="text" name="location" id="location" value="<%=event.location%>" required>
         <label for="start"><strong>Start</strong></label>
-        <input type="datetime-local" step="1" name="start" id="start" value="<%=event.start%>" required>       
+        <input type="datetime-local" step="1" name="start" id="start" value="<%=toISO(event.start)%>" required>       
         <label for="end"><strong>End</strong></label>
-        <input type="datetime-local" step="1" name="end" id="end" value="<%=event.end%>" required> 
+        <input type="datetime-local" step="1" name="end" id="end" value="<%=toISO(event.end)%>" required> 
         <label for="eventImage"><strong>Image</strong></label>
         <input type="file" name="eventImage" id="eventImage" accept="image/*">  
         <label for="current-image"><strong>Current Image</strong></label>

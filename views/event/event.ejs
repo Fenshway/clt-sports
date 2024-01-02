@@ -1,29 +1,26 @@
 <%- include('../partials/header.ejs') %> 
-<main>
     <h1><%=event.category%> Event</h1>
     <div class="event-container">
         <div class= event-header>
             <h2><%=event.title%></h2>
-            <form id="event-buttons-form">
-                <h2 class="event-edit">&nbsp;
-                    <button type="submit" formmethod="GET" formaction="/events/<%=event.id%>/edit">
-                        <i class="fa-regular fa-pen-to-square fa-2xl"></i>
-                    </button>
-                </h2>
-                <h2 class="event-delete">&nbsp;
-                    <button type="submit" formmethod="POST" formaction="/events/<%=event.id%>/?_method=DELETE">
-                        <i class="fa-regular fa-trash-can fa-2xl"></i>
-                    </button>
-                </h2>
-            </form>
+            <% if (event.host._id != user.id) { %>
+                <form class="rsvp-form" action="/events/<%= event.id %>/rsvp" method="POST">
+                    <p><small>Going?</small></p>
+                    <input id="YES" type="submit" name="YES" value="YES">
+                    <input id="NO" type="submit" name="NO" value="NO">
+                    <input id="MAYBE" type="submit" name="MAYBE" value="MAYBE">
+                </form>
+            <% } %>
         </div>
+
         <img src="/images/event/<%=event.eventImage%>" alt="event-img">
         <div class="event-details">
-            <p><strong>Host: </strong><%=event.host%></p>
+            <p><strong>Host: </strong><%=event.host.firstName + ' ' + event.host.lastName%></p>
             <p><strong>When: </strong><%=dateFormat(event.start)%></p>
             <p><strong>Until: </strong><%=dateFormat(event.end)%></p>
-            <p><strong>Where: </strong><%=event.where%></p>
+            <p><strong>Location: </strong><%=event.location%></p>
             <p><strong>Details: </strong><%=event.details%></p>
+            <p><strong>Number of RSVPs: <%=rsvps.filter(rsvp => rsvp.status === 'YES').length %></strong></p>
         </div>
     </div>
 </main>

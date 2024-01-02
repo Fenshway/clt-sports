@@ -1,0 +1,39 @@
+<%- include('../partials/header.ejs') %> 
+    <h2>My Events</h2>
+    <hr>
+    <% if(events.length) { %>
+        <ul class="profile-events-containter">
+        <% events.forEach(event => { %>
+            <li><a href="/events/<%=event.id%>"><%=event.title%></a></li>
+            <form>
+                <button class="update-button" type="submit" formmethod="GET" formaction="/events/<%=event.id%>/edit">
+                    <i class="fa-regular fa-pen-to-square fa-2xl"></i>
+                </button>
+                <button class="delete-button" type="submit" formmethod="POST" formaction="/events/<%=event.id%>/?_method=DELETE">
+                    <i class="fa-regular fa-trash-can fa-2xl"></i>
+                </button>
+            </form>
+            
+        <% }); %>
+        </ul>
+    <% } else { %>
+        <p>You have no events to display</p>
+    <% }; %>
+    <br><br>
+    <h2>My RSVPs</h2>
+    <hr>
+    <% if(rsvps.length) { %>
+        <ul class="profile-events-containter">
+        <% rsvps.forEach(rsvp => { %>
+            <% if (rsvp.event && rsvp.event.id) { %>
+                <li><a href="/events/<%=rsvp.event.id%>"><%=rsvp.event.title%></a></li>
+                <li><%= rsvp.status %></li>
+            <% } %>    
+        <% }); %>
+        </ul>
+    <% } else { %>
+        <p>You have no RSVPs to display</p>
+    <% }; %>
+
+</main>
+<%- include('../partials/footer.ejs') %>

@@ -1,5 +1,4 @@
 <%- include('../partials/header.ejs') %> 
-<main>
     <h1>Events</h1>
     <% if(events.length) { %>
         <% const categories = {}; %>
@@ -13,7 +12,7 @@
             <h2><%=category%></h2>
             <ul class="events-container">
                 <% categories[category].forEach(event => { %>
-                    <li><a href="/events/<%=event.id%>"><%=event.title%> <small>(<%=event.where%>)</small></a></li>
+                    <li><a href="/events/<%=event.id%>"><%=event.title%> <small>(<%=event.location%>)</small></a></li>
                 <% }); %>
             </ul>
         <% } %>

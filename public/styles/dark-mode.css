@@ -41,7 +41,7 @@ header ul {
     float: left;
     list-style-type: none;
 }
-hr {
+header hr {
     width: 98%;
     color: #E1D9D1;
 }
@@ -134,27 +134,31 @@ footer li {
 }
 
 /* event */
-.event-header {
-    display: flex;
-}
-.event-header button {
-    border: none;
-    border-radius: .5em; 
-    cursor: pointer;
-    background-color: #181818;
-}
 .event-header h2 {
     padding: 0 5px;
 }
-#event-buttons-form {
+.event-header input {
+    background-color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin: 0 5px; 
+    max-height: 40px;
+}
+.event-header #yes {
+    color: darkgreen;
+}
+.event-header #no {
+    background-color: lightcoral;
+}
+.event-header #maybe {
+    background-color: blue;
+}
+.rsvp-form {
     display: flex;
 }
-.event-edit button {
-    color: lightgreen;
-}
-.event-delete button {
-    color: lightcoral;
-}
+
 .event-container {
     display: grid;
     grid-template-columns: [img] auto [details] 1fr;
@@ -166,7 +170,8 @@ footer li {
 .event-container img {
     grid-column: img;
     grid-row: auto;
-    height: 10em;
+    max-height: 30em;
+    max-width: 30em;
 }
 .event-container p {
     grid-column: details;
@@ -180,4 +185,54 @@ footer li {
 /* edit event */
 .update-image {
     height: 4em;
+}
+
+/* flash messages */
+.error, .success {
+    width: 100%;
+    text-align: center;
+    color: black;
+    padding: 15px;
+}
+.error {
+    background-color:  #ff9999;
+}
+.success {
+    background-color: #99ff99;
+}
+
+/* profile events */
+.profile-events-containter {
+    display: grid;
+    list-style-type: none;
+    grid-template-columns: 1fr 50px;
+    background-color: #2b2b2b;
+    padding: 20px;
+    grid-gap: 50px;
+    border: 2px solid #333;
+}
+.profile-events-containter li a {
+    list-style-type: none;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.profile-events-containter form {
+    display: flex;
+}
+
+.profile-events-containter form button {
+    background-color: #2b2b2b;
+    border: none;
+}
+.delete-button {
+    color:  lightcoral;
+    cursor: pointer;
+}
+.update-button {
+    color: lightgreen;
+    cursor: pointer;
+    margin-left: -30px;
+    margin-right: 10px;
 }

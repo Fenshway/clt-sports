@@ -1,108 +1,21 @@
-const { v4: uuidv4 } = require('uuid');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const RSVP = require('./rsvp');
 
-const events = [
-    {
-        id: '1',
-        category: 'Soccer',
-        title: 'Soccer Night',
-        host: 'Justin Privett',
-        details: 'Soccer pick up games! If you are intested we also need a few members for the upcoming adult spring season',
-        where: 'Tom Hunter Park',
-        start: '2023-10-21T14:45:00',
-        end: '2023-10-21T18:30:00',
-        eventImage: 'default.png'
-    },
-    {
-        id: '2',
-        category: 'Soccer',
-        title: 'Lets play soccer!',
-        host: 'Don Timson',
-        details: 'Do not worry, soccer will surely be played',
-        where: 'Bond Park',
-        start: '2023-11-11T10:10:00',
-        end: '2023-11-11T11:40:00',
-        eventImage: 'default.png'
-    },
-    {
-        id: '3',
-        category: 'Soccer',
-        title: 'Timmy Soccer Club',
-        host: 'Timmy Donson',
-        details: 'Join us for an exciting soccer event at Reedy Creek Park',
-        where: 'Reedy Creek Park',
-        start: '2023-12-21T11:00:00',
-        end: '2023-12-21T12:45:00',
-        eventImage: 'default.png'
-    },
-    {
-        id: '4',
-        category: 'Pickleball',
-        title: 'Thomas Pickleball Club',
-        host: 'Richard Thomas',
-        details: 'Get ready for an action-packed Pickleball event at White Oak Park! Whether you are a seasoned pro or new to the game, this event is perfect for players of all levels.',
-        where: 'White Oak Park',
-        start: '2023-10-22T11:09:00',
-        end: '2023-10-22T11:09:00',
-        eventImage: 'default.png'
-    },
-    {
-        id: '5',
-        category: 'Pickleball',
-        title: 'Pickleball Night',
-        host: 'Don Johnson',
-        details: 'Looking for people to play pickleball with. It is okay if you are just learning.',
-        where: 'Pearl Street Park',
-        start: '2023-10-23T18:00:00',
-        end: '2023-10-23T19:45:00',
-        eventImage: 'default.png'
-    },
-    {
-        id: '6',
-        category: 'Pickleball',
-        title: 'Doubles Pickleball',
-        host: 'John Donson',
-        details: 'Nestled in the heart of nature, Clark Creek Community Park offers the perfect backdrop for this fun and social event. ',
-        where: 'Clark Creek Community Park',
-        start: '2023-11-24T11:00:00',
-        end: '2023-11-24T12:45:00',
-        eventImage: 'default.png'
-    }
-];
+const eventSchema = new Schema({
+    title: {type: String, required: [true, 'title is required']},
+    category: {type: String, 
+        enum: ['Soccer', 'Basketball', 'Softball', 'Tennis', 'Pickleball', 'Other'],
+        required: [true, 'category is required']},
+    host: {type: Schema.Types.ObjectId, ref:'User', required: [true, 'host is required']},
+    details: {type: String, required: [true, 'details is required']},
+    location: {type: String, required: [true, 'location is required']},
+    start: {type: Date, required: [true, 'start time is required']},
+    end: {type: Date, required: [true, 'end time is required']},
+    eventImage: {type: String, required: [true, 'event image is required']},
+    rsvps: [{type: Schema.Types.ObjectId, ref:'RSVP'}]
+},
+{timestamps: true}
+);
 
-exports.find = () => events;
-
-exports.findById = id => events.find(event=>event.id === id);
-
-exports.add = function (event) {
-    event.id = uuidv4();
-    events.push(event);
-};
-
-exports.deleteById = function(id) {
-    let index = events.findIndex(event => event.id === id);
-    if (index != -1) {
-        events.splice(index, 1);
-        return true;
-    } else {
-        return false;
-    }
-}
-
-exports.updateById = function(id, updateEvent) {
-    let event = events.find(event=>event.id === id);
-    if (event) {
-        event.category = updateEvent.category;
-        event.title = updateEvent.title;
-        event.host = updateEvent.host;
-        event.details = updateEvent.details;
-        event.where = updateEvent.where;
-        event.start = updateEvent.start;
-        event.end = updateEvent.end;
-        if (updateEvent.eventImage){
-            event.eventImage = updateEvent.eventImage;
-        }
-        return true;
-    } else {
-        return false;
-    }
-}
+module.exports = mongoose.model('Event', eventSchema);
